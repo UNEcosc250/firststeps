@@ -51,10 +51,10 @@ object StepOne {
    * Write a pure function to calculate factorials.
    * Once you've written it, uncomment the @tailrec annotation to make sure your function is tail-recursive
    */
-  //@tailrec
   def factorial(i:Int):Long = {
 
     // You'll notice we can declare functions pretty much anywhere. Including as local values inside other functions.
+    //@tailrec
     def factorialStep(soFar:Long, thisNum:Int) = ???
 
     // Now use your factorialStep to work out factorial(i)
