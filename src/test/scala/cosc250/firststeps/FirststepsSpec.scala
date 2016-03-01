@@ -43,6 +43,6 @@ class FirststepsSpec extends FlatSpec with Matchers {
     roman(21) should be ("XXI")
     roman(61) should be ("LXI")
     roman(1981) should be ("MCMLXXXI")
-    roman(1991) should be ("MCMLXCI")
+    roman(1991) should be ("MCMXCI")
   }
 }
