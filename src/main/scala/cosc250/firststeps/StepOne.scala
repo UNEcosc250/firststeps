@@ -92,17 +92,37 @@ object StepOne {
    */
 
   /*
-   * Lets try another immutable data-type. An immutable Map. (Think Java HashMap, but you can't change the values)
+   * Lets try another immutable data-type. An immutable Map. Maps associate keys with values, and are common in many
+   * different languages
+   *
+   * In the code below, you'll see we're using the tuple syntax for creating one. We haven't specified a type, so
+   * the scala compiler will infer this is a Map[Int, String]
    */
   val map = Map(1 -> "a", 2 -> "b", 3 -> "c", 4 -> "d", 5 -> "e")
 
-  // Now return that updated with v -> s (let syntax completion help you out here)
-
+  /*
+   * Now return that updated with v -> s (let syntax completion help you out here)
+   *
+   * You should encounter two problems. There's an updated method you can call, that will return you a new map, but because
+   * both the map and the val are immutable, you'll have to put that into a different variable.
+   *
+   * And the second is that you're trying to put a mapping of String to String, but the compiler inferred that this is
+   * a map from Int to String.
+   *
+   * Scala's type inference will often choose a narrow type, which is usually what you want. But in this case, I've
+   * deliberately made you trip over it!
+   *
+   * How do we loosen the type? Put a type annotation on the declaration of the map variable! Instead of letting
+   * Scala infer that it's a Map[Int, String], change it to a Map[Any, String].
+   *
+   * (And now don't do that again because normally we don't want inconsistent key types in our maps!)
+   */
 
   /** Exercise 4: A while loop from the lecture **/
 
   // As a next little ice-breaker, try putting the Fizz-Buzz code from the lecture in here, and print out fizzbuzz
   // numbers from 1 to 100
+
 
 
 
@@ -124,7 +144,7 @@ object StepOne {
     *
     * Start off by doing this iteratively. And then we'll discover how much shorter it is functionally.
     */
-  def doubleArray(arr:Array[Int]):Array[Int] = arr.map(_ * 2) // ???
+  def doubleArray(arr:Array[Int]):Array[Int] = ???
 
   /**
     * Multiply every element in an array by its position in the array

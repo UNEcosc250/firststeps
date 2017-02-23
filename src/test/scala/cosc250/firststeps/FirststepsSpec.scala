@@ -17,7 +17,7 @@ class FirststepsSpec extends FlatSpec with Matchers {
   }
 
   "timesPosition" should "mutliply the elements of an array by their position" in {
-    timesPosition(Array(1, 2, 3)) should be (Array(2 * 0, 4 * 1, 6 * 2))
+    timesPosition(Array(1, 2, 3)) should be (Array(1 * 0, 2 * 1, 3 * 2))
     timesPosition(Array(9, 7, 5, 12)) should be (Array(9 * 0, 7 * 1, 5 * 2, 12 * 3))
   }
 
