@@ -11,28 +11,23 @@ class FirststepsSpec extends FlatSpec with Matchers {
 
   import StepOne._
 
-  "factorial" should "calculate factorials correctly" in {
-    factorial(1) should be (1)
-    factorial(2) should be (2)
-    factorial(3) should be (6)
-    factorial(12) should be (479001600)
+  "doubleArray" should "double the contents of an array" in {
+    doubleArray(Array(1, 2, 3)) should be (Array(2, 4, 6))
+    doubleArray(Array(9, 7, 5, 12)) should be (Array(18, 14, 10, 24))
   }
 
-  "equality checks" should "be true" in {
-    unspammedEqual should be (true)
-    seqEqualsList should be (true)
-    listEqualsSameList should be (true)
-    tuplesSyntax should be (true)
+  "timesPosition" should "mutliply the elements of an array by their position" in {
+    timesPosition(Array(1, 2, 3)) should be (Array(1 * 0, 2 * 1, 3 * 2))
+    timesPosition(Array(9, 7, 5, 12)) should be (Array(9 * 0, 7 * 1, 5 * 2, 12 * 3))
   }
 
-  "addToMap" should "return a new map with the new mapping" in {
-    addToMap(6, "f").get(6) should be (Some("f"))
+  "doubleList" should "double the contents of a List" in {
+    doubleList(List(1, 2, 3)) should be (List(2, 4, 6))
+    doubleList(List(9, 7, 5, 12)) should be (List(18, 14, 10, 24))
   }
 
-  "Vec" should "be implemented" in {
-    new Vec(1, 2).timesScalar(3) should be (new Vec(3, 6))
-    new Vec(1, 2).plus(new Vec(3, 4)) should be (new Vec(4, 6))
-    new Vec(3, 3).minus(new Vec(1, 2)) should be (new Vec(2, 1))
+  "matchingLettes" should "return tuples of all the matching locations in two strings" in {
+    matchingLetters("frogs", "eggs") should be (List(3 -> 1, 3 -> 2, 4 -> 3))
   }
 
   "Roman" should "calculate roman numerals" in {
