@@ -225,7 +225,7 @@ object StepOne {
     val listOfTupsA:List[(Int, Char)] = 1 -> 'a' :: 2 -> 'b' :: 3 -> 'c' :: Nil
     val listOfTupsB:List[(Int, Char)] = List((1, 'a'), (2, 'b'), (3, 'c'))
     
-    listOfTupsA == listOfTupsB
+    // listOfTupsA == listOfTupsB
   }
 
 
@@ -235,6 +235,18 @@ object StepOne {
     * Suppose we are compiling a crossword. Given two words, find all the pairs of positions where those
     * words have letters in commong. eg, for "frogs" and "eggs", we would return
     * List((3,1), (3,2), (4,3)
+    *
+    * You will find the charAt(x:Int) method on string useful. eg, wordA.charAt(3)
+    * 
+    * A common error in nested loops is forgetting to reset the inner loop counter in the outer loop
+    * (causing it only to go through the inner loop once, rather than once per iteration of the outer loop)
+    *
+    * And note that if you have 
+    * var list:List[(Int,Int)] = Nil
+    * you can append to the head of it with, for example
+    * list = (1, 3) :: list
+    * (You're not modifying the list, you're making the variable "list" point to a new list whose head is (1, 3)
+    * and whose tail is the old list)
     */
   def matchingLetters(wordA:String, wordB:String):List[(Int, Int)] = {
 

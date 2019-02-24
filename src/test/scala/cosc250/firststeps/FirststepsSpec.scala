@@ -40,7 +40,7 @@ class FirststepsSpec extends FlatSpec with Matchers {
   }
 
   "matchingLetters" should "return tuples of all the matching locations in two strings" in {
-    matchingLetters("frogs", "eggs") should be (List(3 -> 1, 3 -> 2, 4 -> 3))
+    matchingLetters("frogs", "eggs").toSet should be (List(3 -> 1, 3 -> 2, 4 -> 3).toSet)
   }
 
   "Roman" should "calculate roman numerals" in {
