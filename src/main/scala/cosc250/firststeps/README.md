@@ -39,11 +39,13 @@ Notice that in Java, `main` is a static method on a class. In Scala, each class 
 
 ### The test harness supplies its own `main`
 
-If you open `src/main/scala/cosc250/firststeps/StepOne.scala` you'll notice there is an object containing the code, but there's no `main` method.
+If you open `src/main/scala/cosc250/firststeps/StepOne.scala` you'll notice there is an object containing the code, and a 'main' method.
 
-To run the tests, from the sbt interactive prompt, run the command `test`.
+The first exercises ask you to run the object. To run the object, from the sbt interactive prompt, run the command `run`.
 
-The test framework is the program that is run, and it runs the tests that are defined in `src/test/scala/cosc250/firststeps/FirststepsSpec.scala`. So, in this case, the testing framework is providing the `main` method.
+The next exercises ask you to run the tests. To run the tests, from the sbt interactive prompt, run the command `test`.
+
+In this case, the test framework is the program that is run, and it runs the tests that are defined in `src/test/scala/cosc250/firststeps/FirststepsSpec.scala`. So, in this case, the testing framework is providing the `main` method.
 
 Remember, though, that if there is a *compile* error in your code, even if it is in a different part of the code than you want to test right now, the code won't compile and the tests can't run.
 

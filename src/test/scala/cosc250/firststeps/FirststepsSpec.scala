@@ -21,12 +21,25 @@ class FirststepsSpec extends FlatSpec with Matchers {
     timesPosition(Array(9, 7, 5, 12)) should be (Array(9 * 0, 7 * 1, 5 * 2, 12 * 3))
   }
 
+  "listsAreEqual" should "discover the lists are equal" in {
+    listsAreEqual() should be (true)
+  }
+
+  "theseAreAlsoEqual" should "discover the lists are equal" in {
+    theseAreAlsoEqual() should be (true)
+  }
+
+
   "doubleList" should "double the contents of a List" in {
     doubleList(List(1, 2, 3)) should be (List(2, 4, 6))
     doubleList(List(9, 7, 5, 12)) should be (List(18, 14, 10, 24))
   }
 
-  "matchingLettes" should "return tuples of all the matching locations in two strings" in {
+  "tuplesAreEqual" should "discover the lists of tuples are equal" in {
+    tuplesAreEqual() should be (true)
+  }
+
+  "matchingLetters" should "return tuples of all the matching locations in two strings" in {
     matchingLetters("frogs", "eggs") should be (List(3 -> 1, 3 -> 2, 4 -> 3))
   }
 
