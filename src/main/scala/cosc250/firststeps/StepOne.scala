@@ -220,12 +220,13 @@ object StepOne {
 
     Again this test just verifies the syntax produces the same thing
   */
-  def tuplesAreEqual() = {
+  def tuplesAreEqual():Boolean = {
 
     val listOfTupsA:List[(Int, Char)] = 1 -> 'a' :: 2 -> 'b' :: 3 -> 'c' :: Nil
     val listOfTupsB:List[(Int, Char)] = List((1, 'a'), (2, 'b'), (3, 'c'))
     
     // listOfTupsA == listOfTupsB
+    ???
   }
 
 
