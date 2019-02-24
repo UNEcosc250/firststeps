@@ -122,11 +122,16 @@ object StepOne {
       Use a while loop to double every entry in an array
     */
   def doubleArray(arr:Array[Int]):Array[Int] = {
-    ??? //  ??? is shorthand for "throw a not-implemented-yet exception". 
 
-    
-    // remember, you don't need to use "return" in Scala. 
-    // A function evaluates to the last expression in the function
+    // NB: This is an imperative solution to show the syntax. We'll see a much better functional solution
+    // in tutorial 2
+    val copy = new Array[Int](arr.length)
+    var i = 0
+    while (i < arr.length) {
+      copy(i) = 2 * arr(i)
+      i = i + 1
+    }
+    copy
   }
 
   /**
@@ -137,7 +142,18 @@ object StepOne {
       Use a similar while loop as before
     */
   def timesPosition(arr:Array[Int]):Array[Int] = {
-    ???
+    
+    // NB: This is an imperative solution to show the syntax. We'll see a much better functional solution
+    // in tutorial 2
+    val copy = new Array[Int](arr.length)
+    var i = 0
+    while (i < arr.length) {
+      copy(i) = i * arr(i)
+      i = i + 1
+    }
+    copy
+
+
   }
 
   /**
@@ -163,8 +179,7 @@ object StepOne {
     // The test just wants to verify these two lists are equal, even though they've been declared differently
     // So to make the test pass, you should just be able to uncomment the next line
 
-    ???
-    // list == sameList
+    list == sameList
   }
 
   def theseAreAlsoEqual():Boolean = {
@@ -181,8 +196,7 @@ object StepOne {
     // (everything but the first element)
     val listC = List(0, 1, 2, 3, 4, 5, 6, 7).tail
 
-    ???
-    // listA == listB && listB == listC
+    listA == listB && listB == listC
   }
 
 
@@ -196,11 +210,8 @@ object StepOne {
       double the elements in a List by converting it to an array, doubling it (using the function we defined earlier)
       and then converting it back to a new List.
     */
-  def doubleList(arr:List[Int]):List[Int] = {
-    // val a = arr.toArray
-    // ...
-    // b.toList
-    ???
+  def doubleList(list:List[Int]):List[Int] = {
+    doubleArray(list.toArray).toList 
   }
 
 
@@ -225,8 +236,7 @@ object StepOne {
     val listOfTupsA:List[(Int, Char)] = 1 -> 'a' :: 2 -> 'b' :: 3 -> 'c' :: Nil
     val listOfTupsB:List[(Int, Char)] = List((1, 'a'), (2, 'b'), (3, 'c'))
     
-    // listOfTupsA == listOfTupsB
-    ???
+    listOfTupsA == listOfTupsB    
   }
 
 
@@ -251,14 +261,71 @@ object StepOne {
     */
   def matchingLetters(wordA:String, wordB:String):List[(Int, Int)] = {
 
-    ???
+    // Again, this is a clunky imperative solution.
+    // We'll see a better functional solution in a later tutorial
+    var i = 0
+    var list = List.empty[(Int, Int)]
 
+    while (i < wordA.length) {
+      var j = 0
+      while (j < wordB.length) {
+        if (wordA.charAt(i) == wordB.charAt(j)) {
+          list = i -> j :: list
+        }
+
+        j = j + 1
+      }
+      i = i + 1
+    }    
+
+    list
   }
 
   /**
     * And let's finish with a little challenge: Write a function that can translate a number into Roman numerals
     */
-  def roman(i:Int):String = ???
+  def roman(i:Int):String = {
+
+    // These are ordered from biggest to smallest. 
+    val numerals = List(
+      1000 -> "M",
+      900 -> "CM",
+      100 -> "C",
+      90 -> "XC",
+      50 -> "L",
+      40 -> "XL",
+      10 -> "X",
+      9 -> "IX",
+      5 -> "V",
+      4 -> "IV",
+      1 -> "I",
+      0 -> ""
+    )
+
+
+    // Note: again this is an imperative mutable solution. Again we'll see a functional one next time.
+    var remainder = i
+    var string = ""
+    while (remainder > 0) {
+
+      var cursor = numerals
+      // This ensures we are looking at the largest numeral that is smaller than the remainder
+      // cursor.head is a tuple. This compares its left hand side
+      while (cursor.head._1 > remainder) {
+        cursor = cursor.tail
+      }
+
+      // cursor.head is a tuple. This is a destructuring assignment that sets num and str to its left and right sides.
+      val (num, str) = cursor.head
+
+      // Add the numeral to the string, and reduce the remainder by the number we just added to the string
+      string = string + str
+      remainder = remainder - num
+    }
+
+    // The answer is now in the string we built up
+    string
+  }
 
 
   /*
