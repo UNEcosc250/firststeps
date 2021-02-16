@@ -32,5 +32,12 @@ vagrant/sbt-launch.jar
 
 tmp
 
-# Bloop
+# Metals
 .bsp
+.metals
+.bloop
+metals.sbt
+
+# VSCode
+.vscode
+
