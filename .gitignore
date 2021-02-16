@@ -31,3 +31,6 @@ vagrant/.bashrc
 vagrant/sbt-launch.jar
 
 tmp
+
+# Bloop
+.bsp
