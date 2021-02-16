@@ -295,7 +295,24 @@ def matchingLetters(wordA:String, wordB:String):List[(Int, Int)] = {
 }
 
 /**
-  * And let's finish with a little challenge: Write a function that can translate a number into Roman numerals
+  * And let's finish with a slightly longer challenge: Write a function that can translate a number into Roman numerals.
+  * 
+  * To help you over the "how would I do that in any language", let's give you a strategy...
+  * 
+  * Declare a Sequence of tuple from numbers to string fragments. 
+  * We're not just going to include the letters like "X", we're also
+  * going to include the subtractions like "IX" for 9.
+  * 
+  * So we want
+  * M -> 1000, CM -> 900, D -> 500, CD -> 400, C -> 100, XC -> 90, L -> 50, XL -> 40, X -> 10, IX -> 9, V -> 5, IV -> 4, I -> 1
+  * 
+  * Now, what we're going to do is keep a "remainder" and a "string". The remainder starts out as the input number.
+  * 
+  * We're going to loop through our tuples from biggest to smallest - 
+  * let's call the current entry in the tuples (r, i). While the remainder
+  * is bigger than i, we append r to the string and subtract i from the remainder.
+  * 
+  * Once we're done, remainder should be 0 and the roman numeral should be in the string.
   */
 def roman(i:Int):String = ???
 
