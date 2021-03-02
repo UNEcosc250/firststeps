@@ -161,11 +161,14 @@ package cosc250.firststeps
     Use a while loop to double every entry in an array
   */
 def doubleArray(arr:Array[Int]):Array[Int] = {
-  ??? //  ??? is shorthand for "throw a not-implemented-yet exception". 
+  // This is an imperative solution, but please note it's NOT what we'd normally do!
+  val dest = new Array[Int](arr.length)
+  var i = 0
+  while i < dest.length do
+    dest(i) = 2 * arr(i)
+    i += 1
 
-  
-  // remember, you don't need to use "return" in Scala. 
-  // A function evaluates to the last expression in the function
+  dest
 }
 
 /**
@@ -176,7 +179,14 @@ def doubleArray(arr:Array[Int]):Array[Int] = {
     Use a similar while loop as before
   */
 def timesPosition(arr:Array[Int]):Array[Int] = {
-  ???
+  // Again, imperative because this is imperative week but normally we wouldn't do that...
+  val dest = new Array[Int](arr.length)
+  var i = 0
+  while i < dest.length do
+    dest(i) = i * arr(i)
+    i += 1
+
+  dest
 }
 
 /**
@@ -202,8 +212,7 @@ def listsAreEqual():Boolean = {
   // The test just wants to verify these two lists are equal, even though they've been declared differently
   // So to make the test pass, you should just be able to uncomment the next line
 
-  ???
-  // list == sameList
+  list == sameList
 }
 
 def theseAreAlsoEqual():Boolean = {
@@ -220,8 +229,7 @@ def theseAreAlsoEqual():Boolean = {
   // (everything but the first element)
   val listC = List(0, 1, 2, 3, 4, 5, 6, 7).tail
 
-  ???
-  // listA == listB && listB == listC
+  listA == listB && listB == listC
 }
 
 
@@ -239,7 +247,7 @@ def doubleList(arr:List[Int]):List[Int] = {
   // val a = arr.toArray
   // ...
   // b.toList
-  ???
+  doubleArray(arr.toArray).toList
 }
 
 
@@ -264,8 +272,7 @@ def tuplesAreEqual():Boolean = {
   val listOfTupsA:List[(Int, Char)] = 1 -> 'a' :: 2 -> 'b' :: 3 -> 'c' :: Nil
   val listOfTupsB:List[(Int, Char)] = List((1, 'a'), (2, 'b'), (3, 'c'))
   
-  // listOfTupsA == listOfTupsB
-  ???
+  listOfTupsA == listOfTupsB
 }
 
 
@@ -289,9 +296,17 @@ def tuplesAreEqual():Boolean = {
   * and whose tail is the old list)
   */
 def matchingLetters(wordA:String, wordB:String):List[(Int, Int)] = {
+  // Again, imperative though normally we wouldn't...
+  var i = 0
+  var result = List.empty[(Int, Int)]
+  while i < wordA.length do
+    var j = 0
+    while j < wordB.length do
+      if (wordA(i) == wordB(j)) then result = (i, j) :: result
+      j += 1
+    i += 1
 
-  ???
-
+  result
 }
 
 /**
@@ -314,7 +329,22 @@ def matchingLetters(wordA:String, wordB:String):List[(Int, Int)] = {
   * 
   * Once we're done, remainder should be 0 and the roman numeral should be in the string.
   */
-def roman(i:Int):String = ???
+def roman(i:Int):String = {
+  // Again, imperative though normally we wouldn't...
+  var numerals = List("M" -> 1000, "CM" -> 900, "D" -> 500, "CD" -> 400, "C" -> 100, "XC" -> 90, "L" -> 50, "XL" -> 40, "X" -> 10, "IX" -> 9, "V" -> 5, "IV" -> 4, "I" -> 1)
+  var remainder = i
+  var result = ""
+
+  while numerals.nonEmpty do
+    val (str, num) = numerals.head
+    while remainder >= num do 
+      result += str
+      remainder -= num
+      
+    numerals = numerals.tail
+
+  result
+}
 
 
 /*
