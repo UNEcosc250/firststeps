@@ -4,15 +4,20 @@ This is a small Scala tutorial exercise to start getting used to the syntax of S
 
 It is typically taken *before* introducing functional programming concepts, so students should feel free to just use imperative programming to complete this tutorial.
 
-The project is organised as an sbt project: `src/main/scala` contains the main code and `src/test/scala` contains tests that will be run against it if you run `sbt test` (or `test` from an interactive sbt prompt).
+The project is organised in a common format for programming projects: 
+
+* `src/main/scala` contains the main code, and 
+* `src/test/scala` contains unit tests that will be run against it if you run `scala-cli test .` 
 
 ## Useful to know before you start
 
 A few language conventions are useful to remember before you begin the tutorial:
 
-### Companion objects instead of static methods
+### Top-level main methods
 
-Scala compiles (by default) to run on the JVM. Just as Java requires a little overhead to define a program, so does Scala. So, this in Java
+Scala compiles (by default) to run on the JVM. But it has its own coding conventions.
+
+In Java, you might need to say this to define a program:
 
 ```java
 public class MyApp {
@@ -23,27 +28,64 @@ public class MyApp {
 }
 ```
 
-might be replaced by this in Scala:
+That might be replaced by this in Scala:
 
 ```scala
-object MyApp {
+@main def myApp() = 
+    // program
+```
 
-    def main(args:Array[String]) = {
-        // program
-    }
+Notice that in Java, `main` is a static method on a class. 
+
+In Scala, a "top-level" main method can be declared by giving it an `@main` annotation.
+
+We can have more than one main method. This repository, for instance, has two:
+
+```scala
+@main def exercise1():Unit = {
+
+  print("""
+         |Hello from your friendly exercise start-up message! If you see this message printed at the 
+         |terminal, you successfully ran this method.
+         |
+         |Now move on to exercise 2.
+         |
+         |""".stripMargin)
 
 }
 ```
 
-Notice that in Java, `main` is a static method on a class. In Scala, each class can have a "companion object" - a single object with the same name as the class. Methods defined on a companion object are (roughly) similar to static methods in Java.
+and 
+
+```scala
+@main def exercise2():Unit = {
+    // this one's a bit longer so I haven't shown the code in the README
+}
+```
+
+If there are multiple main methods, then `scala-cli run .` won't know which to run, but you can get it to ask you:
+
+```sh
+scala-cli run . --interactive
+```
+
+And then it'll give you a list of the main methods and ask which you want it to run.
 
 ### The test harness supplies its own `main`
 
-If you open `src/main/scala/cosc250/firststeps/StepOne.scala` you'll notice there is an object containing the code, and a 'main' method.
+If you open `src/main/scala/cosc250/firststeps/StepOne.scala` you'll notice there is some code, and two @main methods.
 
-The first exercises ask you to run the object. To run the object, from the sbt interactive prompt, run the command `run`.
+The first exercises ask you to run the code. To run the code
 
-The next exercises ask you to run the tests. To run the tests, from the sbt interactive prompt, run the command `test`.
+```sh
+scala-cli run . --interactive
+```
+
+The next exercises ask you to run the tests. To run the tests, 
+
+```sh
+scala-cli test .
+```
 
 In this case, the test framework is the program that is run, and it runs the tests that are defined in `src/test/scala/cosc250/firststeps/FirststepsSpec.scala`. So, in this case, the testing framework is providing the `main` method.
 

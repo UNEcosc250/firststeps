@@ -2,6 +2,8 @@
 *.class
 *.log
 
+.scala-build/
+
 # Maven/sbt output directory
 target
 dist
