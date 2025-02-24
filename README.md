@@ -7,7 +7,23 @@ It is typically taken *before* introducing functional programming concepts, so s
 The project is organised in a common format for programming projects: 
 
 * `src/main/scala` contains the main code, and 
-* `src/test/scala` contains unit tests that will be run against it if you run `scala-cli test .` 
+* `src/test/scala` contains unit tests that will be run against it 
+
+To run the code, **if you have Scala 3.5 or newer** (e.g. on UNE's Turing server)
+
+```
+scala .
+```
+
+From Scala 3.5, scala-cli is the standard Scala runner, invoked as `scala`. 
+
+If you have an older version of scala installed (e.g. you installed the 3.3 LTS version of Scala), also install `scala-cli` and run
+
+```
+scala-cli .
+```
+
+In the rest of the tutorial instructions, we'll just say `scala`, but remember if you've installed a version before 3.5, install scala-cli and say `scala-cli` instead of `scala` in your commands. 
 
 ## Useful to know before you start
 
@@ -63,10 +79,10 @@ and
 }
 ```
 
-If there are multiple main methods, then `scala-cli run .` won't know which to run, but you can get it to ask you:
+If there are multiple main methods, then `scala run .` (or `scala-cli run .`) won't know which to run, but you can get it to ask you:
 
 ```sh
-scala-cli run . --interactive
+scala run . --interactive
 ```
 
 And then it'll give you a list of the main methods and ask which you want it to run.
@@ -78,13 +94,13 @@ If you open `src/main/scala/cosc250/firststeps/StepOne.scala` you'll notice ther
 The first exercises ask you to run the code. To run the code
 
 ```sh
-scala-cli run . --interactive
+scala run . --interactive
 ```
 
 The next exercises ask you to run the tests. To run the tests, 
 
 ```sh
-scala-cli test .
+scala test .
 ```
 
 In this case, the test framework is the program that is run, and it runs the tests that are defined in `src/test/scala/cosc250/firststeps/FirststepsSpec.scala`. So, in this case, the testing framework is providing the `main` method.
