@@ -1,5 +1,5 @@
 // Don't delete the comment below -- it is a Scala-CLI "using" directive to instruct it to use the munit test framework
-//> using test.dep org.scalameta::munit::0.7.29
+//> using test.dep org.scalameta::munit::1.1.0
 
 package cosc250.firststeps
 
