@@ -134,7 +134,7 @@ package cosc250.firststeps
  * writing proper code. (Rather than deciding, "well, it's only testing doubleArray for Array(7) so I'll just always
  * return Array(14)".
  *
- * To run the tests, start an interactive sbt prompt and run the command "test"
+ * To run the tests, "scala test ." (or, for versions before Scala 3.5, "scala-cli test .")
  * The test framework will run every test that is defined in src/test/scala
  *
  * Run them now, and scroll up to the first test that failed. Then make it pass, and move on to the next one.
