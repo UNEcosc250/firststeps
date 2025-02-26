@@ -23,7 +23,7 @@ package cosc250.firststeps
 
 
 /**
-  * Just below this comment is a main method. This means you can run this object (eg, "sbt run", or "run" at the sbt prompt).
+  * Just below this comment is a main method. This means you can run this object (eg, "scala run .", or "scala-cli run ." depending on what's installed).
   * You'll notice I've been able to give it a name other than "main" - the annotation `@main` has marked it as a 
   * main method. 
   * 
@@ -37,10 +37,11 @@ package cosc250.firststeps
   * 
   * 
   *
-  * EXERCISE 1: start an sbt shell for this project (remember, start it from the directory containing build.sbt)
-  * and "run" this class to see the message printed out. 
+  * EXERCISE 1: start a terminal (command line) for this project (remember, start it from the directory containing README.md)
+  * and run this main method to see the message printed out. 
   * 
-  * (Because there is more than one main method available, sbt will ask you which to run)
+  * (Because there is more than one main method available, the Scala runner will ask you to give it the "interactive" flag to choose
+  * e.g. "scala run . --interactive" or "scala-cli run . --interactive")
   */
 @main def exercise1():Unit = {
 
@@ -57,9 +58,9 @@ package cosc250.firststeps
 /**
   * EXERCISE 2: Basic syntax
   * 
-  * This is another main method. Again, you can run it with `run` at the sbt prompt,and sbt will ask you which method to run.
+  * This is another main method. Again, you can run it with `scala run . --interactive` or `scala-cli run . --interactive`.
   * 
-  * Or you can say `runMain cosc250.firststeps.exercise2` to tell it directly.
+  * Or you can say `scala run . --main-class cosc250.firststeps.exercise2` to tell it directly.
   * 
   */
 @main def exercise2():Unit = {
